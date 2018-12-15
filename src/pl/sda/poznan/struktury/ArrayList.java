@@ -65,7 +65,12 @@ public class ArrayList implements MyList {
   }
 
   @Override
-  public String remove(int index) {
+  public String remove(int position) {
+    // sprawdź zakres position >=0 && position < this.index
+    // jeśli zakres jest nieprawidłowy - za mały lub za duży to rzuć wyjątkiem IndexOutOfBoundsException
+    // usunąć element i lukę którą pozostawi, jesli jest środkowym bądź pierwszym elementem
+
+
     return null;
   }
 
@@ -79,7 +84,13 @@ public class ArrayList implements MyList {
     // usuwamy ostatni element z tablicy
     // O(1)
     // zwróć uwagę na usuwanie z pustej listy
-    return null;
+    if (isEmpty()) {
+      return null;
+    }
+    String toRemove = elements[index - 1];
+    elements[index - 1] = null;
+    index--;
+    return toRemove;
   }
 
   @Override
