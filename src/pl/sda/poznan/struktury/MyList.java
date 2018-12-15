@@ -11,9 +11,9 @@ public interface MyList {
   // operacja usuwania po pozycji ("usuń trzeci element")
   String remove(int index);
 
-  String removeFront();
+  String removeFirst();
 
-  String removeFromEnd();
+  String removeLast();
 
   // odpowiada na pytanie, czy lista pusta
   boolean isEmpty();

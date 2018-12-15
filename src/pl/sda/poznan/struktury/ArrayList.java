@@ -70,12 +70,15 @@ public class ArrayList implements MyList {
   }
 
   @Override
-  public String removeFront() {
+  public String removeFirst() {
     return null;
   }
 
   @Override
-  public String removeFromEnd() {
+  public String removeLast() {
+    // usuwamy ostatni element z tablicy
+    // O(1)
+    // zwróć uwagę na usuwanie z pustej listy
     return null;
   }
 
@@ -83,8 +86,8 @@ public class ArrayList implements MyList {
   public boolean isEmpty() {
     // sprawdza, czy lista jest pusta
     // lista jest pusta, gdy index wskazuje na zerowy element
-    boolean czyListaPusta = index == 0;
-    return czyListaPusta;
+    // oblicz wartość wyrażenia czy index jest równy 0 i zwróc je
+    return index == 0;
 
     // to samo co wyzej - 1 linia
     // return index == 0;
@@ -109,6 +112,7 @@ public class ArrayList implements MyList {
 
   @Override
   public boolean contains(String element) {
+    // zwróc czy prawdą jest, ze indexOf(element) >= 0
     return indexOf(element) >= 0;
     //    bardziej rozbudowana wersja - preferujemy tą krótszą ;)
     //    if (indexOf(element) >= 0) {
