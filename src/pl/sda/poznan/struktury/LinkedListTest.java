@@ -1,5 +1,6 @@
 package pl.sda.poznan.struktury;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -52,5 +53,25 @@ public class LinkedListTest {
     assertEquals(0, list.indexOf(surname));
     assertEquals(1, list.indexOf(name));
     assertEquals(2, list.size());
+  }
+
+  @Test
+  @Disabled
+  public void should_add_to_end_of_list() {
+    // arrange
+    String first = "pierwszy";
+    String drugi = "drugi";
+    String trzeci = "trzeci";
+
+    // act
+    list.add(first);
+    list.add(drugi);
+    list.add(trzeci);
+
+    // assert
+    assertEquals(0, list.indexOf(first));
+    assertEquals(1, list.indexOf(drugi));
+    assertEquals(2, list.indexOf(trzeci));
+    assertEquals(3, list.size());
   }
 }

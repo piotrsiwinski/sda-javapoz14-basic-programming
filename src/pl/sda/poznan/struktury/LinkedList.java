@@ -17,9 +17,32 @@ public class LinkedList implements MyList {
       // head na coś wskazuje, wiec lista nie pusta
       // wstawiamy na początek listy
       insertFront(element);
+      // jesli chcemy przy dodawaniu wstawiać na koniec to trzeba odkomentować poniższą linię kodu
+      // a zakomentować 19 linie
+      //      appendToList(element);
     }
     count++;
     return true;
+  }
+
+  private void appendToList(String element) {
+    // zadaniem tej metody jest wstawienie elementu na koniec listy
+    // doczepienie jej na koniec
+    // "jan" -> "tomasz"
+    // wstawiamy "adam"
+    // "jan" -> "tomasz" -> "adam"
+    // mając head musimy dojść do ostaniego elementu i tam stworzyć dowiązanie
+    // utwórz i wykorzystaj pomocniczą zmienną
+    Node helper = head;
+    // while służy wyłącznie do przestawiania wskaźnika helper,
+    // aż dojdziemy do ostatniego elementu
+    while (helper.getNext() != null) {
+      helper = helper.getNext();
+    }
+    // po wyjsciu z petli
+    // helper pokazuje na ostatni element
+    Node newNode = new Node(element);
+    helper.setNext(newNode);
   }
 
   private void insertFront(String element) {
