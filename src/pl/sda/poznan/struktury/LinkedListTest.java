@@ -36,4 +36,21 @@ public class LinkedListTest {
     // assert
     assertEquals(3, list.size());
   }
+
+  @Test
+  public void should_return_index_of_present_element() {
+    // arrange
+    String name = "Jan";
+    String surname = "kowalski";
+    list.add(name);
+    list.add(surname);
+
+    // assert
+    // drugi element powinien byc na pozycji 1
+    // kolejność: "kowalski" -> "jan" -> NULL
+    assertEquals(-1, list.indexOf("not-present-value"));
+    assertEquals(0, list.indexOf(surname));
+    assertEquals(1, list.indexOf(name));
+    assertEquals(2, list.size());
+  }
 }

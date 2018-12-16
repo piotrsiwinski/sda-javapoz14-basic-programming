@@ -61,7 +61,19 @@ public class LinkedList implements MyList {
 
   @Override
   public int indexOf(String element) {
-    return 0;
+    Node helper = head;
+    int position = 0;
+    while (helper != null) {
+      // iterujemy po dynamicznych wskaźnikach
+      if (helper.getValue().equals(element)) {
+        // jeśli wartość węzła zgadza sie z szukanym elementem -> zwracamy licznik
+        return position;
+      }
+      // jeśli nie znaleziono, to przestawiamy wskaźnik na następny element
+      helper = helper.getNext();
+      position++;
+    }
+    return -1;
   }
 
   @Override
@@ -74,7 +86,7 @@ public class LinkedList implements MyList {
 
   @Override
   public int size() {
-    return 0;
+    return count;
   }
 
   // klasa reprezentująca pojedynczy węzeł - poj. element na liście
