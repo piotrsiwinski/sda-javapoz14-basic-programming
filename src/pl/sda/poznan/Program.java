@@ -14,12 +14,13 @@ public class Program {
     mojaLista.add("c");
     mojaLista.remove(1);
     mojaLista.remove(0);
+    System.out.println(mojaLista.toString());
     mojaLista.add("z");
 
     // c z
     System.out.println(mojaLista.toString());
 
-    // c
+//    // c
     mojaLista.remove(1);
     System.out.println(mojaLista.toString());
   }

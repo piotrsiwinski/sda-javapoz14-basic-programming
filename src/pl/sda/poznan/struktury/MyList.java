@@ -27,4 +27,7 @@ public interface MyList {
 
   // usuwa wszystkie elementy z listy
   void clear();
+
+  // zwraca rozmiar listy
+  int size();
 }

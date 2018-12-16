@@ -61,6 +61,7 @@ public class ArrayList implements MyList {
 
   @Override
   public boolean remove(String element) {
+    // todo: wykorzystaj istniejące metody do usuwanie elementu
     return false;
   }
 
@@ -70,21 +71,30 @@ public class ArrayList implements MyList {
     // jeśli zakres jest nieprawidłowy - za mały lub za duży to rzuć wyjątkiem
     // IndexOutOfBoundsException
     // usunąć element i lukę którą pozostawi, jesli jest środkowym bądź pierwszym elementem
-    if (position < 0 || position > index - 1) {
+    if (position < 0 || position >= index) {
       throw new IndexOutOfBoundsException("Wrong index parameter");
     }
     // pobieramy element, ktory ma zostac usuniety, aby go potem zwrócić
     String elementToRemove = elements[position];
     index--;
+    // kopiujemy pozostałą prawą część tablicy, tak aby pozbyc się luki w środku tablicy
     for (int i = position; i < index; i++) {
       elements[i] = elements[i + 1];
     }
+
+    // przesunęliśmy index o 1 pozycję w lewo i skopiowaliśmy pozostałe elementy
+    // jednak ostatnia "prawa" wartość została zduplikowana, u nas z tablicy [a, b, c]
+    // po usunięciu b, zostanie [a, c, c] - mamy 2 razy c, mimo, iż wstawiliśmy tylko 1 raz
+    // gdybyśmy kasowali kolejny element, to nagle mamy duplikat i niespojność
+    // w celu uniknięcia duplikatu, na pozycję index wpisujemy null
+    //
     elements[index] = null;
     return elementToRemove;
   }
 
   @Override
   public String removeFirst() {
+    // todo: wykorzystaj istniejące metody do usuwanie elementu
     return null;
   }
 
@@ -142,7 +152,18 @@ public class ArrayList implements MyList {
   }
 
   @Override
-  public void clear() {}
+  public void clear() {
+    // tworzymy nową tablicę o takim samym rozmiarze
+    this.elements = new String[elements.length];
+    // zerujemy indeks
+    this.index = 0;
+  }
+
+  @Override
+  public int size() {
+    return index;
+  }
+
 
   @Override
   public String toString() {
