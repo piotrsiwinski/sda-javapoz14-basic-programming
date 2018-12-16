@@ -9,16 +9,18 @@ public class Program {
   public static void main(String[] args) {
     MyList mojaLista = new ArrayList(3);
 
-    mojaLista.add("Ala");
-    mojaLista.add("ma");
-    mojaLista.add("kota");
-    mojaLista.add("basia");
-    mojaLista.add("test");
+    mojaLista.add("a");
+    mojaLista.add("b");
+    mojaLista.add("c");
+    mojaLista.remove(1);
+    mojaLista.remove(0);
+    mojaLista.add("z");
 
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Jaki element chcesz szukac");
-    String text = scanner.next();
-    int pozycja = mojaLista.indexOf(text);
-    System.out.println(pozycja);
+    // c z
+    System.out.println(mojaLista.toString());
+
+    // c
+    mojaLista.remove(1);
+    System.out.println(mojaLista.toString());
   }
 }

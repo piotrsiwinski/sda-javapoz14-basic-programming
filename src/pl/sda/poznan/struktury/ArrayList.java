@@ -67,11 +67,20 @@ public class ArrayList implements MyList {
   @Override
   public String remove(int position) {
     // sprawdź zakres position >=0 && position < this.index
-    // jeśli zakres jest nieprawidłowy - za mały lub za duży to rzuć wyjątkiem IndexOutOfBoundsException
+    // jeśli zakres jest nieprawidłowy - za mały lub za duży to rzuć wyjątkiem
+    // IndexOutOfBoundsException
     // usunąć element i lukę którą pozostawi, jesli jest środkowym bądź pierwszym elementem
-
-
-    return null;
+    if (position < 0 || position > index - 1) {
+      throw new IndexOutOfBoundsException("Wrong index parameter");
+    }
+    // pobieramy element, ktory ma zostac usuniety, aby go potem zwrócić
+    String elementToRemove = elements[position];
+    index--;
+    for (int i = position; i < index; i++) {
+      elements[i] = elements[i + 1];
+    }
+    elements[index] = null;
+    return elementToRemove;
   }
 
   @Override
@@ -134,4 +143,18 @@ public class ArrayList implements MyList {
 
   @Override
   public void clear() {}
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("[ ");
+    for (int i = 0; i < index; i++) {
+      builder.append(elements[i]);
+      if (i != index - 1) {
+        builder.append(", ");
+      }
+    }
+    builder.append(" ]");
+    return builder.toString();
+  }
 }
