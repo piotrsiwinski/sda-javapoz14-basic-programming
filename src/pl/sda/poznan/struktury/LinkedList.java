@@ -69,7 +69,9 @@ public class LinkedList implements MyList {
 
   @Override
   public String removeFirst() {
-    return null;
+    String headValue = head.getValue();
+    head = head.next;
+    return headValue;
   }
 
   @Override
@@ -79,7 +81,8 @@ public class LinkedList implements MyList {
 
   @Override
   public boolean isEmpty() {
-    return false;
+    //    return count == 0;
+    return head == null;
   }
 
   @Override
@@ -101,7 +104,7 @@ public class LinkedList implements MyList {
 
   @Override
   public boolean contains(String element) {
-    return false;
+    return indexOf(element) >= 0;
   }
 
   @Override

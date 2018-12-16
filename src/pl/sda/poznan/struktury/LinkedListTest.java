@@ -74,4 +74,21 @@ public class LinkedListTest {
     assertEquals(2, list.indexOf(trzeci));
     assertEquals(3, list.size());
   }
+
+  @Test
+  public void should_remove_first_element() {
+    // arrange
+    String name = "jan";
+    String surname = "kowalski";
+    list.add(name);
+    list.add(surname);
+
+    // "kowalski" -> "jan"
+
+    //act
+    // todo: finish this test ;)
+
+    // assert
+
+  }
 }
