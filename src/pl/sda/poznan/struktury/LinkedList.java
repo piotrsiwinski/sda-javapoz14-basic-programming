@@ -88,6 +88,15 @@ public class LinkedList implements MyList {
     // musimy dotrzeć do ostatniego elementu, zeby pobrac jego wartosc
     // ale musimy tez miec dostęp do przedostatniego elementu
     // zeby przedostatniego elementu wskaźnik NEXT ustawić na null
+
+    if (head == null) {
+      return null;
+    } else if (head.getNext() == null) {
+      String value = head.getValue();
+      head = null;
+      count--;
+      return value;
+    }
     Node helper = head;
     Node prev = null;
     // chcemy dotrzec do ostatniego elementu
@@ -98,7 +107,6 @@ public class LinkedList implements MyList {
     }
     String value = helper.getValue();
     prev.setNext(null);
-    helper = null;
 
     return value;
   }

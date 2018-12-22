@@ -1,27 +1,20 @@
 package pl.sda.poznan;
 
-import pl.sda.poznan.struktury.ArrayList;
-import pl.sda.poznan.struktury.MyList;
-
-import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 
 public class Program {
+
   public static void main(String[] args) {
-    MyList mojaLista = new ArrayList(3);
+    Stack<String> napisy = new Stack<>();
 
-    mojaLista.add("a");
-    mojaLista.add("b");
-    mojaLista.add("c");
-    mojaLista.remove(1);
-    mojaLista.remove(0);
-    System.out.println(mojaLista.toString());
-    mojaLista.add("z");
-
-    // c z
-    System.out.println(mojaLista.toString());
-
-//    // c
-    mojaLista.remove(1);
-    System.out.println(mojaLista.toString());
+    napisy.push("element0");
+    napisy.push("element1");
+    napisy.push("element2");
+    String pop = napisy.pop();
+    napisy.pop();
+    napisy.pop();
+    napisy.pop();
   }
 }
