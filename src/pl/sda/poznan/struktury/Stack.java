@@ -1,5 +1,7 @@
 package pl.sda.poznan.struktury;
 
+import java.util.EmptyStackException;
+
 public class Stack<T> {
 
   private Object[] elements;
@@ -23,8 +25,15 @@ public class Stack<T> {
     //    topIndex++;
   }
 
+  @SuppressWarnings("unchecked")
   public T pop() {
-    return null;
+    // rzuc wyjatkiem gdy stos pusty
+    if (topIndex == 0) {
+      throw new EmptyStackException();
+    }
+    T element = (T) elements[--topIndex];
+    elements[topIndex] = null;
+    return element;
   }
 
   public int size() {

@@ -21,4 +21,17 @@ public class StackTest {
     assertEquals(1, stringStack.size());
 
   }
+
+  @Test
+  public void should_delete_element_from_stack(){
+    // arrange
+    String element = "first";
+    stringStack.push(element);
+    // act
+    String deletedElement = stringStack.pop();
+
+    // assert
+    assertEquals(element, deletedElement);
+    assertEquals(0, stringStack.size());
+  }
 }
