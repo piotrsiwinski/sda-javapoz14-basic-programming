@@ -69,14 +69,38 @@ public class LinkedList implements MyList {
 
   @Override
   public String removeFirst() {
+    // todo: obsługa sytacji, gdy lista pusta
+    // powinniśmy zwrócić nulla ;)
+    if (head == null) {
+      return null;
+    }
+
+    // pobieramy wartość z aktualnej głowy
     String headValue = head.getValue();
+    // przestawiamy głowę na kolejny element
     head = head.next;
-    return headValue;
+    count--;
+    return headValue; // zwracamy wartosc "starej" glowy
   }
 
   @Override
   public String removeLast() {
-    return null;
+    // musimy dotrzeć do ostatniego elementu, zeby pobrac jego wartosc
+    // ale musimy tez miec dostęp do przedostatniego elementu
+    // zeby przedostatniego elementu wskaźnik NEXT ustawić na null
+    Node helper = head;
+    Node prev = null;
+    // chcemy dotrzec do ostatniego elementu
+
+    while (helper.getNext() != null) {
+      prev = helper;
+      helper = helper.getNext();
+    }
+    String value = helper.getValue();
+    prev.setNext(null);
+    helper = null;
+
+    return value;
   }
 
   @Override
@@ -89,6 +113,7 @@ public class LinkedList implements MyList {
   public int indexOf(String element) {
     Node helper = head;
     int position = 0;
+    // wykonuj tak długo, az nie dojdziemy do końca listy
     while (helper != null) {
       // iterujemy po dynamicznych wskaźnikach
       if (helper.getValue().equals(element)) {

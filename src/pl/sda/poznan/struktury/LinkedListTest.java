@@ -85,10 +85,56 @@ public class LinkedListTest {
 
     // "kowalski" -> "jan"
 
-    //act
-    // todo: finish this test ;)
+    // act
+    String removedElement = list.removeFirst();
 
     // assert
+    assertEquals(surname, removedElement);
+    assertEquals(1, list.size());
+  }
 
+  @Test
+  public void should_return_null_when_empty_list() {
+    // arrange
+    // act
+    String removedElement = list.removeFirst();
+
+    // assert
+    assertEquals(null, removedElement);
+    assertEquals(0, list.size());
+  }
+
+  @Test
+  public void should_remove_last_when_multiple_elements() {
+    // arrange
+    String name = "jan";
+    String surname = "kowalski";
+    list.add(name);
+    list.add(surname);
+
+    // kowalski -> jan
+
+    // act
+    String removedElement = list.removeLast();
+
+    // assert
+    assertEquals(name, removedElement);
+    assertEquals(false, list.contains(removedElement));
+    assertEquals(0, list.indexOf(surname));
+  }
+
+  @Test
+  public void should_remove_last_when_one_element_on_list() {
+    // arrange
+    String name = "jan";
+    list.add(name);
+
+    // act
+    String removedElement = list.removeLast();
+
+    // assert
+    assertEquals(name, removedElement);
+    assertEquals(false, list.contains(removedElement));
+    assertEquals(0, list.size());
   }
 }
